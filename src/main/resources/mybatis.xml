@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--sql语句打印-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--给实体类取别名-->
+    <!--<typeAliases>-->
+        <!--<package name="com.szxs.entity"/>-->
+    <!--</typeAliases>-->
+
+    <!--配置连接数据库信息-->
+    <!--<environments default="work1">-->
+        <!--<environment id="work1">-->
+            <!--<transactionManager type="JDBC"/>-->
+            <!--<dataSource type="POOLED">-->
+                <!--<property name="url" value="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8"/>-->
+                <!--<property name="driver" value="com.mysql.jdbc.Driver"/>-->
+                <!--<property name="username" value="root" />-->
+                <!--<property name="password" value="ROOT" />-->
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
+
+    <mappers>
+        <mapper resource="mapper/Enterprisetalent.xml"></mapper>
+        <mapper resource="mapper/department.xml"></mapper>
+    </mappers>
+
+</configuration>

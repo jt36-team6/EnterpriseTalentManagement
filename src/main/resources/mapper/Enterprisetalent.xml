@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szxs.dao.EnterprisetalentDao">
+
+    <!--查询所有人才信息-->
+    <select id="queryEnterprisetalents" resultType="com.szxs.entity.Enterprisetalent">
+        SELECT e.*,d.name "department.name" FROM department d,enterpriseTalent e WHERE e.departmentId = d.id
+        <if test="departmentId>0">
+            AND departmentId = #{departmentId}
+        </if>
+    </select>
+
+    <!--根据id查询单个人信息-->
+    <select id="queryEnterprisetalent" resultType="com.szxs.entity.Enterprisetalent">
+        SELECT e.*,d.name "department.name" FROM department d,enterpriseTalent e WHERE e.departmentId = d.id and e.id = #{id}
+    </select>
+
+    <!--添加人才信息-->
+    <insert id="add">
+        INSERT INTO enterpriseTalent VALUES(DEFAULT,#{name},#{workingLife},#{workExperience},#{personalProfile},#{departmentId},#{graduateSchool});
+    </insert>
+
+    <!--删除人才信息-->
+    <delete id="delete">
+        DELETE FROM enterpriseTalent WHERE id = #{id}
+    </delete>
+
+    <!--修改人才信息-->
+    <update id="modify">
+        UPDATE enterpriseTalent SET NAME = #{name},workingLife = #{workingLife},workExperience = #{workExperience},
+        personalProfile = #{personalProfile},departmentId = #{departmentId},graduateSchool = #{graduateSchool} WHERE id = #{id};
+    </update>
+
+</mapper>
